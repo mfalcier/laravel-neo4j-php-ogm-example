@@ -24,7 +24,7 @@ class Neo4jOGMServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('GraphAware\Neo4j\OGM\EntityManagerInterface', function ($app) {
+        $this->app->singleton(EntityManager::class, function ($app) {
             return EntityManager::create(config('database.neo4j-url'));
         });
     }

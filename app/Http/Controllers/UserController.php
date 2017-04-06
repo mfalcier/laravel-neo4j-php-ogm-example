@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Entities\User;
-use GraphAware\Neo4j\OGM\EntityManagerInterface;
+use GraphAware\Neo4j\OGM\EntityManager;
 use GraphAware\Neo4j\OGM\Repository\BaseRepository;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -11,7 +11,7 @@ use Illuminate\Http\Response;
 class UserController extends Controller
 {
     /**
-     * @var EntityManagerInterface
+     * @var EntityManager
      */
     private $entityManager;
 
@@ -22,9 +22,9 @@ class UserController extends Controller
 
     /**
      * UserController constructor.
-     * @param EntityManagerInterface $entityManager
+     * @param EntityManager $entityManager
      */
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(EntityManager $entityManager)
     {
         $this->entityManager = $entityManager;
         $this->userRepository = $this->entityManager->getRepository(User::class);
